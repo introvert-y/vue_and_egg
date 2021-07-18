@@ -1,4 +1,13 @@
-./serve/app/view/
-./serve/app/public/
-./rich_text/dist/
 
+
+rich_text/node_modules/
+rich_text/dist/
+rich_text/run/
+rich_text/dist/*
+
+serve/node_modules/
+serve/lang/
+serve/logs/
+serve/run/
+/serve/app/view/
+/serve/app/public/
