@@ -20,6 +20,7 @@ class HomeController extends Controller {
   }
   async showVueProject() {
     const { ctx } = this;
+    console.log(ctx.request)
     const data = {
       baseUrl: this.config.domainPublicPath,
     }

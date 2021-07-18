@@ -5,9 +5,13 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
+  // const historyApiFallback = app.middleware.historyApiFallback({
+  //   app,
+  // });
+  // router.get('*', controller.home.showVueProject);
   router.get('/Api/getUrl', controller.home.getUrl);
-  // http://127.0.0.1:7001/practice
-  // http://127.0.0.1:7001/practice#/editor
-  router.get('/practice', controller.home.showVueProject);
+  // // http://127.0.0.1:7001/practice
+  // // http://127.0.0.1:7001/practice#/editor
+  router.get('/template', controller.home.showVueProject);
+  router.get('/editor', controller.home.showVueProject);
 };

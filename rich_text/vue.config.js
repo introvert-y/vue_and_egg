@@ -30,7 +30,8 @@ function getIPAdress() {
 }
 
 const ip = getIPAdress();
-console.log('ip', ip)
+console.log('ip', ip);
+console.log('node static addree', serDomain);
 module.exports = {
   publicPath: serDomain,
   devServer: {
