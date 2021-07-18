@@ -10,4 +10,12 @@ module.exports = {
     enable: true,
     package: 'egg-view-nunjucks'
   },
+  // sessionRedis: {
+  //   enable: true,
+  //   package: 'egg-session-redis'
+  // },
+  // redis: {
+  //   enable: true,
+  //   package: 'egg-redis'
+  // },
 };

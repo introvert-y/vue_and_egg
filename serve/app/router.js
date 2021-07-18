@@ -14,5 +14,6 @@ module.exports = app => {
    * 这里再挂上那个二级域名前缀
    */
   router.get('/rich_text/Api/getUrl', controller.home.getUrl);
+  router.post('/rich_text/Api/getContractPdf', controller.home.getContractPdf);
   router.get('/rich_text/*', controller.home.showVueProject);
 };

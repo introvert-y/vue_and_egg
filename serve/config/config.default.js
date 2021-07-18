@@ -28,7 +28,9 @@ module.exports = appInfo => {
       ".html": "nunjucks",
     },
   };
-
+  config.security = {
+    csrf: false,
+  };
   return {
     ...config,
     ...userConfig,

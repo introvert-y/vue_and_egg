@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import request from "@requset/index.js";
 import { lineHeightStyle, fontSizeStyle } from '@utils/lineHeight';
 import Quill from 'quill';
 // import { ImageDrop } from 'quill-image-drop-module';
@@ -93,6 +94,7 @@ export default {
   },
   props: ['datas'],
   created() {
+    this.getContractPdf();
   },
   methods: {
     onEditorBlur() {
@@ -117,7 +119,46 @@ export default {
       console.log('click submit')
       // this.content = JSON.parse(JSON.stringify(this.content).replace(`<p><br></p>`, ''));
       console.log('>>>>>>>>', JSON.stringify(this.content));
-    }
+    },
+		getContractPdf() {
+			let that = this;
+			const loading = this.$loading({
+				lock: true,
+				text: "Loading",
+				spinner: "el-icon-loading",
+				background: "rgba(0, 0, 0, 0.7)"
+			});
+			request({
+				url: "/Api/getContractPdf",
+				method: "POST",
+				responseType: "blob"
+			})
+				.then(({ res }) => {
+					loading.close();
+					console.log("getContractPdf", res);
+					// let type = "application/octet-stream";
+					// let blob = new Blob([res.data], { type: type });
+					// console.log("blob", blob);
+					var url = window.URL.createObjectURL(res);
+					console.log("url", url);
+					let fileName = "template.pdf";
+					var a = document.createElement("a");
+					a.href = url;
+					a.download = fileName;
+					document.body.appendChild(a);
+					a.click();
+					a.remove();
+					window.URL.revokeObjectURL(url);
+				})
+				.catch(err => {
+					console.log("err", err);
+					loading.close();
+					that.$message({
+						type: "error",
+						message: err.msg || err.massage
+					});
+				});
+		},
   },
 };
 </script>
