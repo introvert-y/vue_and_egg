@@ -12,6 +12,6 @@ run/
 *.un~
 typings/
 .nyc_output/
-./app/view/*
-./app/public/*
+./app/view/
+./app/public/
 
