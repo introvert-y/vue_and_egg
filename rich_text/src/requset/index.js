@@ -96,7 +96,7 @@ async function request({
         }
         // 处理需要跳转登录的状态码 （for黑卡)
         resolve({
-          res,
+          res: res.data,
         });
         // console.log('!!!!!!!!$$$$$ gtgtgtgggggg', isNeedLoading, countRequest)
         // loading为0时才关闭loading

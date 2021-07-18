@@ -3,7 +3,7 @@ const path = require('path')
 const child_process = require('child_process');
 const { BUILD_ENV } = process.env;
 
-let serDomain = 'http://localhost:8080/';
+let serDomain = '/';
 
 const secondDir = '/otherWeb';
 // const build_version = new Date().getTime();
