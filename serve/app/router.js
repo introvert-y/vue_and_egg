@@ -9,9 +9,10 @@ module.exports = app => {
   //   app,
   // });
   router.get('/', controller.home.index);
-  router.get('/Api/getUrl', controller.home.getUrl);
-  // // http://127.0.0.1:7001/practice
-  // // http://127.0.0.1:7001/practice#/editor
-  router.get('/template', controller.home.showVueProject);
-  router.get('/editor', controller.home.showVueProject);
+  /**
+   * 通过设置cookie的方式来设置二级域名的路由，然后指向vue的router里引入baseUrl
+   * 这里再挂上那个二级域名前缀
+   */
+  router.get('/rich_text/Api/getUrl', controller.home.getUrl);
+  router.get('/rich_text/*', controller.home.showVueProject);
 };

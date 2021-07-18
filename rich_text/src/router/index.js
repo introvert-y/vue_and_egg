@@ -7,12 +7,12 @@ Vue.use(VueRouter);
 const prefix = getCookie("reqPrefix") || "";
 const routes = [
 	{
-		path: `${prefix}/`,
+		path: `/`,
 		name: "home",
 		component: () => import( /* webpackChunkName: "home" */ "../views/home/index.vue"),
 	},
 	{
-		path: `${prefix}/editor`,
+		path: `/editor`,
 		name: "editor",
 		meta: {
 			title: '编辑页',
@@ -20,7 +20,7 @@ const routes = [
 		component: () => import( /* webpackChunkName: "editor" */ "../views/editor/index.vue"),
 	},
 	{
-		path: `${prefix}/template`,
+		path: `/template`,
 		name: "template",
 		meta: {
 			title: '展示页',
@@ -32,7 +32,7 @@ console.log("routes", routes);
 
 const router = new VueRouter({
 	mode: "history",
-	// base: process.env.BASE_URL,
+	base: prefix,
 	routes
 });
 router.beforeEach((to, from, next) => {

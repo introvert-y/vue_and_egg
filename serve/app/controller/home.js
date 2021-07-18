@@ -20,13 +20,13 @@ class HomeController extends Controller {
   }
   async showVueProject() {
     const { ctx } = this;
-    console.log(ctx.request)
-    const data = {
-      baseUrl: this.config.domainPublicPath,
-    }
-    console.log('>>>>>>>>>>>>>>>>>>')
-    console.log('showVueProject')
-    await ctx.render("/otherWeb/index.html", data);
+    console.log('showVueProject>>>>>>>>>>>')
+    ctx.cookies.set("reqPrefix", '/rich_text', {
+      httpOnly: false,
+      signed: false,
+    });
+
+    await ctx.render("/otherWeb/index.html");
   }
 }
 
