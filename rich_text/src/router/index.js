@@ -27,6 +27,14 @@ const routes = [
 		},
 		component: () => import( /* webpackChunkName: "template" */ "../views/template/index.vue"),
 	},
+	{
+		path: `/multilingual`,
+		name: "multilingual",
+		meta: {
+			title: '多语言',
+		},
+		component: () => import( /* webpackChunkName: "multilingual" */ "../views/multilingual/index.vue"),
+	},
 ];
 console.log("routes", routes);
 

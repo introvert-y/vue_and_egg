@@ -50,6 +50,7 @@ module.exports = {
 				.set('@utils', path.join(__dirname, './src/utils'))
 				.set('@requset', path.join(__dirname, './src/requset'))
 				.set('@components', path.join(__dirname, './src/components'))
+				.set('@assets', path.join(__dirname, './src/assets'))
 	},
   configureWebpack: (config) => {
     if (BUILD_ENV && BUILD_ENV != 'dev') {

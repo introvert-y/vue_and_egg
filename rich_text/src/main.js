@@ -11,6 +11,12 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
+import VueI18n from 'vue-i18n'
+import commonReffer from 'mock-public-zzc'
+
+console.log('main', commonReffer);
+Vue.use(VueI18n)
+
 Vue.use(VueQuillEditor);
 Vue.use(ElementUI);
 
@@ -18,6 +24,16 @@ Vue.config.productionTip = false
 
 new VConsole();
 
+// 多语言
+const i18n = new VueI18n({
+  locale: 'zh',
+  messages: {
+    'zh': require('@assets/lang/zh.js'),
+    'en': require('@assets/lang/en.js')
+  }
+});
+
+// 消息封装
 const myMessage =  function (args) {
 	Message.closeAll();
 	return Message(args);
@@ -40,5 +56,6 @@ Vue.prototype.$message =  myMessage;
 
 new Vue({
   router,
+	i18n,
   render: h => h(App),
 }).$mount('#app')
