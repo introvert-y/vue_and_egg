@@ -1,6 +1,8 @@
 
 # vue_and_egg
 vue+egg，api全部通过egg去反向代理，及打包后放到egg的目录
+
+## 补充了多语言配置（服务端和客户端）
 ## rich_text 为vue项目
 ## 安装依赖
  npm install/cnpm install/ yarn
